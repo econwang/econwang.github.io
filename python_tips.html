@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-89702789-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  <!-- End Google Analytics -->
+  <meta name="author" content="Stephen Y.F. Wang">
+  <meta name="dcterms.date" content="2017-01-07">
+  <title>Updated Python Tips</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap-docs/docs.min.css">
+  <link rel="stylesheet" href="assets/econwang.css">
+  <style type="text/css">
+  #document-body h1,
+  #document-body h2,
+  #document-body h3,
+  #document-body h4,
+  #document-body h5,
+  #document-body h6 {
+    margin-top:-50px;
+    padding-top:50px;
+  };
+  </style>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://econwang.com">ECON WORLD</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="http://econwang.com">Home</a></li>
+        <li><a href="mailto:econwang@econwang.com">Contact</a></li>
+        <li><a href="https://github.com/econwang">Github</a></li>
+        <li><a href="http://econwang.com/donation.html">Donation</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm sidebar" role="complementary" id="TOC">
+<ul>
+<li><a href="#install">Install</a><ul>
+<li><a href="#install-the-official-version">Install the Official Version</a></li>
+<li><a href="#install-anaconda">Install Anaconda</a></li>
+</ul></li>
+<li><a href="#scientific-libraries">Scientific Libraries</a><ul>
+<li><a href="#autograd-efficiently-computes-derivatives-of-numpy-code"><strong>Autograd</strong>: Efficiently Computes Derivatives of Numpy Code</a></li>
+<li><a href="#numdifftools-solves-automatic-numerical-differentiation-problems"><strong>Numdifftools</strong>: Solves Automatic Numerical Differentiation Problems</a></li>
+<li><a href="#openopt-a-python-module-for-numerical-optimization"><strong>Openopt</strong>: A Python Module for Numerical Optimization</a></li>
+</ul></li>
+</ul>
+    </div><!-- /#TOC -->
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+
+      <header>
+        <h1 class="title page-header">Updated Python Tips</h1>
+        <h2 class="author">Stephen Y.F. Wang</h2>
+        <h3 class="date">2017-01-07</h3>
+        <hr />
+      <p> &nbsp; </p>
+      </header>
+
+<div id="document-body">
+<h1 id="install">Install</h1>
+<p>Two options in Windows, one is the official version, another is the scientific-oriented Python Distribution, such as <a href="http://www.activestate.com/activepython">ActivePython</a>, <a href="https://store.continuum.io/cshop/anaconda">Anaconda</a>, <a href="http://python-xy.github.io/">Python(x,y)</a>, <a href="http://www.pyzo.org/">Pyzo</a>, <a href="https://winpython.github.io/">WinPython</a>, etc..</p>
+<h2 id="install-the-official-version">Install the Official Version</h2>
+<h2 id="install-anaconda">Install Anaconda</h2>
+<p>Anaconda is a enterprise-ready Python distribution for big data.</p>
+<ol type="1">
+<li>The installation of Anaconda on Windows is as simple as other regular Windows programs, just download the binary from <a href="https://www.continuum.io/downloads" class="uri">https://www.continuum.io/downloads</a> (I use Python 2.7), then install it.</li>
+<li><p>Commands for managing packages:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">conda install XXX
+conda update XXX
+conda update anaconda
+conda remove XXX
+conda clean <span class="op">-</span>a</code></pre></div></li>
+<li>If want use <strong>GNU Compiler</strong> to build <strong>Python Extensions</strong>, you should:
+<ol type="a">
+<li>Install the <code>libpython</code> package provided by <strong>Anaconda</strong>: <code>conda install libpython</code></li>
+<li><p>Create a file named <code>distutils.cfg</code> in <code>path2anaconda\Lib\distutils</code> with contents:</p>
+<pre><code>[build]
+compiler=mingw32
+</code></pre></li>
+</ol></li>
+</ol>
+<h1 id="scientific-libraries">Scientific Libraries</h1>
+<h2 id="autograd-efficiently-computes-derivatives-of-numpy-code"><strong>Autograd</strong>: Efficiently Computes Derivatives of Numpy Code</h2>
+<ol type="1">
+<li>Installation: First check the dependencies, especially the version of <strong>Numpy</strong>, then the usual <code>pip install autograd</code>.</li>
+<li>Usage:</li>
+</ol>
+<h2 id="numdifftools-solves-automatic-numerical-differentiation-problems"><strong>Numdifftools</strong>: Solves Automatic Numerical Differentiation Problems</h2>
+<ol type="1">
+<li>Installation: First check the dependence, especially those for <strong>Algopy</strong>, then the usual <code>pip install numdifftools</code>.</li>
+<li>Usage:</li>
+</ol>
+<h2 id="openopt-a-python-module-for-numerical-optimization"><strong>Openopt</strong>: A Python Module for Numerical Optimization</h2>
+<ol type="1">
+<li>Dependency: <em>setproctitle</em>, it is a C extension, can download the whl file from <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">Christoph Gohlke’s website</a></li>
+<li><p>Install:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">easy_install openopt
+easy_install FuncDesigner
+easy_install DerApproximator</code></pre></div></li>
+</ol>
+</div>
+    </div><!-- /.main -->
+  </div><!-- /.row -->
+</div><!-- /.container-fluid -->
+
+<div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+      <p class="navbar-text navbar-right">© 2017 <a href="mailto:econwang@econwang.com">Stephen Y.F. Wang</a>. &nbsp;&nbsp; Powered by <a href="http://pandoc.org/">Pandoc</a> &amp; <a href="https://getbootstrap.com/">Bootstrap</a>
+      </p>
+    </div>
+</div>
+
+<script type="text/javascript" src="assets/jquery/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+    jQuery(function()
+    {
+        jQuery('#TOC').find('ul').addClass('nav');
+        jQuery('#TOC').children('ul').addClass('bs-docs-sidenav');
+    });
+</script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/bootstrap-docs/docs.min.js"></script>
+
+</body>
+</html>

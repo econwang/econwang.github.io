@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-89702789-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  <!-- End Google Analytics -->
+  <meta name="author" content="Stephen Y.F. Wang">
+  <meta name="dcterms.date" content="2017-01-04">
+  <title>Atom</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap-docs/docs.min.css">
+  <link rel="stylesheet" href="assets/econwang.css">
+  <style type="text/css">
+  #document-body h1,
+  #document-body h2,
+  #document-body h3,
+  #document-body h4,
+  #document-body h5,
+  #document-body h6 {
+    margin-top:-50px;
+    padding-top:50px;
+  };
+  </style>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://econwang.com">ECON WORLD</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="http://econwang.com">Home</a></li>
+        <li><a href="mailto:econwang@econwang.com">Contact</a></li>
+        <li><a href="https://github.com/econwang">Github</a></li>
+        <li><a href="http://econwang.com/donation.html">Donation</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm sidebar" role="complementary" id="TOC">
+<ul>
+<li><a href="#atom">Atom</a></li>
+<li><a href="#auxiliary-package">Auxiliary Package</a></li>
+<li><a href="#language">Language</a><ul>
+<li><a href="#stata">Stata</a></li>
+<li><a href="#python">Python</a></li>
+<li><a href="#fortran">Fortran</a></li>
+<li><a href="#r">R</a></li>
+<li><a href="#latex">LaTeX</a></li>
+<li><a href="#pandoc-markdown">Pandoc Markdown</a></li>
+</ul></li>
+</ul>
+    </div><!-- /#TOC -->
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+
+      <header>
+        <h1 class="title page-header">Atom</h1>
+        <h2 class="author">Stephen Y.F. Wang</h2>
+        <h3 class="date">2017-01-04</h3>
+        <hr />
+      <p> &nbsp; </p>
+      </header>
+
+<div id="document-body">
+<h1 id="atom">Atom</h1>
+<p>Atom (<a href="https://atom.io/" class="uri">https://atom.io/</a>) is “a hackable text editor for the 21st Century”</p>
+<p>Why use a third party <strong>Source Code Editor</strong></p>
+<ul>
+<li>Multi-Language environment, Multi-Document, Run inside and from the editor</li>
+<li>Auto-completion, Syntax Highlighting</li>
+<li>Linter</li>
+<li>Regular Expression Enhanced Find and Replace</li>
+<li>…</li>
+</ul>
+<h1 id="auxiliary-package">Auxiliary Package</h1>
+<ul>
+<li><p>Using proxy inside <em>Atom</em>, such as <em>Goagent</em>: <code>apm config set https-proxy=http://127.0.0.1:8087/</code> <code>apm config set strict-ssl false</code></p></li>
+<li><p>Change Atom’s token limit for syntax highlighting: <code>apm install grammar-token-limit</code></p></li>
+<li><p>Minimap: <code>apm install minimap</code></p></li>
+<li><p>View pdf in Atom: <code>apm install pdf-view</code></p></li>
+<li><p>Open file using external program: <code>apm install open-unsupported-files</code></p></li>
+<li><p>Text-clicking: <code>apm install hyperclick</code></p></li>
+<li><p>Terminal: <code>apm install open-conemu-here</code></p></li>
+<li><p>Font spec: <code>apm install fonts</code>, then choose font in settings</p></li>
+<li><p>Enhanced column selection: <code>apm install column-select</code></p></li>
+<li><p>Auto-encoding: <code>apm install auto-encoding</code>, and in the package setting disallow <code>windows 1252</code>, useful when deal with both Stata 14 and older versions</p></li>
+<li><p>Run program using any <em>Jupyter</em> kernels inside <em>Atom</em>: <code>apm install hydrogen</code>, need <em>Jupyter</em> installed</p></li>
+<li><p>Run program from <em>Atom</em>: <code>apm install script</code></p></li>
+<li><p>Show file-icon associated with file extension: <code>apm install file-icons</code></p></li>
+<li><p>Linter package for <em>Atom</em>: <code>apm install linter</code></p></li>
+</ul>
+<h1 id="language">Language</h1>
+<h2 id="stata">Stata</h2>
+<ol type="1">
+<li>Language: <code>apm install language-stata</code>, with autocomplete inside, if want more key words, just add words in the grammar file</li>
+<li>Run inside <em>Atom</em>: using <em>hydrogen</em>, should install the <em>stata-kernel</em> package for <em>IPython</em> (<a href="https://github.com/jrfiedler/stata-kernel" class="uri">https://github.com/jrfiedler/stata-kernel</a>) as:
+<ol type="a">
+<li>Register Stata instance: cd to Stata installation directory, then type something like:<br />
+<code>StataMP-64.exe /Register</code></li>
+<li><code>pip install git+https://github.com/jrfiedler/stata-kernel</code></li>
+<li><code>python -m stata_kernel.install</code></li>
+</ol></li>
+<li>Run from <em>Atom</em>: use <em>AutoIt</em> program and <em>Script</em>:
+<ol type="a">
+<li><p>In file <a href="/.atom/packages/script/lib/grammars.coffee" class="uri">/.atom/packages/script/lib/grammars.coffee</a>, replace the Stata section as</p>
+<div class="sourceCode"><pre class="sourceCode coffee"><code class="sourceCode coffee">Stata<span class="kw">:</span>
+  <span class="st">&quot;Selection Based&quot;</span><span class="kw">:</span>
+    command<span class="kw">:</span> <span class="st">&quot;D:\\Program File\\AutoitPlug\\Atom\\Stata14\\rundo.exe&quot;</span>
+    args<span class="kw">:</span> <span class="fu">(context) -&gt;</span>
+      code <span class="kw">=</span> context<span class="kw">.</span>getCode<span class="kw">()</span>
+      tmpFile <span class="kw">=</span> GrammarUtils<span class="kw">.</span>Stata<span class="kw">.</span>createTempFileWithCode<span class="kw">(</span>code<span class="kw">)</span>
+      <span class="kw">[</span>tmpFile<span class="kw">]</span>
+  <span class="st">&quot;File Based&quot;</span><span class="kw">:</span>
+    command<span class="kw">:</span> <span class="st">&quot;D:\\Program File\\AutoitPlug\\Atom\\Stata14\\rundo.exe&quot;</span>
+    args<span class="kw">:</span> <span class="fu">(context) -&gt;</span> <span class="kw">[</span>context<span class="kw">.</span>filepath<span class="kw">]</span></code></pre></div></li>
+<li><p>In file <a href="/.atom/packages/script/lib/grammar-utils.js" class="uri">/.atom/packages/script/lib/grammar-utils.js</a>, add this:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="co">// Public: Get the Stata helper object</span>
+<span class="co">//</span>
+<span class="co">// Returns an {Object} which assists in creating temp files containing Stata code</span>
+Stata<span class="op">:</span> <span class="at">require</span>(<span class="st">&#39;./grammar-utils/Stata&#39;</span>)<span class="op">,</span></code></pre></div></li>
+<li><p>Create a file named <code>Stata.js</code> in <a href="/.atom/packages/script/lib/grammar-utils" class="uri">/.atom/packages/script/lib/grammar-utils</a> with content:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="st">&#39;use babel&#39;</span><span class="op">;</span>
+
+<span class="co">// Public: GrammarUtils.Stata - a module which assist the creation of Stata temporary files</span>
+<span class="im">export</span> <span class="im">default</span> <span class="op">{</span>
+  <span class="co">// Public: Create a temporary file with the provided Stata code</span>
+  <span class="co">//</span>
+  <span class="co">// * `code`    A {String} containing some Stata code</span>
+  <span class="co">//</span>
+  <span class="co">// Returns the {String} filepath of the new file</span>
+  <span class="at">createTempFileWithCode</span>(code) <span class="op">{</span>
+    code1 <span class="op">=</span> code <span class="op">+</span> <span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>
+    <span class="cf">return</span> <span class="va">module</span>.<span class="va">parent</span>.<span class="va">exports</span>.<span class="at">createTempFileWithCode</span>(code1<span class="op">,</span><span class="st">&#39;.do&#39;</span>)<span class="op">;</span>
+  <span class="op">},</span>
+<span class="op">};</span></code></pre></div></li>
+<li><p>The <em>AutoIt</em> program and the associated <em>ini</em> file can be download from <a href="http://pan.baidu.com/s/1eSsMYkE" class="uri">http://pan.baidu.com/s/1eSsMYkE</a>, make sure change the path of <em>Stata</em> program and Title of Stata window in the <em>ini</em> file, and also the <em>AutoIt</em> program path in <em>script’s grammars.coffee</em></p></li>
+</ol></li>
+</ol>
+<h2 id="python">Python</h2>
+<ol type="1">
+<li>Language is build in</li>
+<li>Autocomplete enhanced (jedi): <code>apm install autocomplete-python</code></li>
+<li>Run inside <em>Atom</em> by <em>IPython</em>: using <em>hydrogen</em></li>
+<li>Run from <em>Atom</em>: use <em>AutoIt</em> program and <em>Script</em>
+<ol type="a">
+<li><p>In file <a href="/.atom/packages/script/lib/grammars.coffee" class="uri">/.atom/packages/script/lib/grammars.coffee</a>, replace the Python section as</p>
+<div class="sourceCode"><pre class="sourceCode coffee"><code class="sourceCode coffee">Python<span class="kw">:</span>
+  <span class="st">&quot;Selection Based&quot;</span><span class="kw">:</span>
+    command<span class="kw">:</span> <span class="st">&quot;D:\\Program File\\AutoitPlug\\Atom\\IPython\\ipythonrun.exe&quot;</span>
+    args<span class="kw">:</span> <span class="fu">(context)  -&gt;</span>
+      dirname <span class="kw">=</span> GrammarUtils<span class="kw">.</span>Python<span class="kw">.</span>projectDir<span class="kw">(</span>context<span class="kw">.</span>filepath<span class="kw">)</span>
+      code <span class="kw">=</span> context<span class="kw">.</span>getCode<span class="kw">()</span>
+      tmpFile <span class="kw">=</span> GrammarUtils<span class="kw">.</span>Python<span class="kw">.</span>createTempFileWithCode<span class="kw">(</span>code<span class="kw">)</span>
+      <span class="kw">[</span>dirname<span class="kw">,</span> tmpFile<span class="kw">]</span>
+  <span class="st">&quot;File Based&quot;</span><span class="kw">:</span>
+    command<span class="kw">:</span> <span class="st">&quot;D:\\Program File\\AutoitPlug\\Atom\\IPython\\ipythonrun.exe&quot;</span>
+    args<span class="kw">:</span> <span class="fu">(context) -&gt;</span>
+      dirname <span class="kw">=</span> GrammarUtils<span class="kw">.</span>Python<span class="kw">.</span>projectDir<span class="kw">(</span>context<span class="kw">.</span>filepath<span class="kw">)</span>
+      <span class="kw">[</span>dirname<span class="kw">,</span> context<span class="kw">.</span>filepath<span class="kw">]</span></code></pre></div></li>
+<li><p>In file <a href="/.atom/packages/script/lib/grammar-utils.js" class="uri">/.atom/packages/script/lib/grammar-utils.js</a>, add this:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="co">// Public: Get the R helper object</span>
+<span class="co">//</span>
+<span class="co">// Returns an {Object} which assists in creating temp files containing R code</span>
+Python<span class="op">:</span> <span class="at">require</span>(<span class="st">&#39;./grammar-utils/Python&#39;</span>)<span class="op">,</span></code></pre></div></li>
+<li><p>In <a href="/.atom/packages/script/lib/grammar-utils" class="uri">/.atom/packages/script/lib/grammar-utils</a>, create a file named <em>Python.js</em> with content:</p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="st">&#39;use babel&#39;</span><span class="op">;</span>
+<span class="im">import</span> path <span class="im">from</span> <span class="st">&#39;path&#39;</span><span class="op">;</span>
+
+<span class="co">// Public: GrammarUtils.Python - a module which assist the creation of Python temporary files</span>
+<span class="im">export</span> <span class="im">default</span> <span class="op">{</span>
+  <span class="co">// Public: Create a temporary file with the provided Python code</span>
+  <span class="co">//</span>
+  <span class="co">// * `code`    A {String} containing some Python code</span>
+  <span class="co">//</span>
+  <span class="co">// Returns the {String} filepath of the new file</span>
+  <span class="at">createTempFileWithCode</span>(code) <span class="op">{</span>
+    code1 <span class="op">=</span> <span class="st">&#39;# -*- coding: utf-8 -*-</span><span class="sc">\n</span><span class="st">&#39;</span> <span class="op">+</span> code
+    <span class="cf">return</span> <span class="va">module</span>.<span class="va">parent</span>.<span class="va">exports</span>.<span class="at">createTempFileWithCode</span>(code1<span class="op">,</span><span class="st">&#39;.py&#39;</span>)<span class="op">;</span>
+  <span class="op">},</span>
+
+  <span class="co">// Public: Get path of editorfile</span>
+  <span class="co">//</span>
+  <span class="co">// * `editorfile`  {Object} containing current file</span>
+  <span class="co">//</span>
+  <span class="co">// Returns {String} containing the file path</span>
+  <span class="at">projectDir</span>(editorfile) <span class="op">{</span>
+    <span class="cf">return</span> <span class="va">path</span>.<span class="at">dirname</span>(editorfile)<span class="op">;</span>
+  <span class="op">},</span>
+<span class="op">};</span></code></pre></div></li>
+<li>The <em>AutoIt</em> program and the associated <em>ini</em> file can be download from <a href="http://pan.baidu.com/s/1eSsMYkE" class="uri">http://pan.baidu.com/s/1eSsMYkE</a>, make sure change the path of <em>IPythonexec</em> program and Title of IPython window in the <em>ini</em> file, and also the <em>AutoIt</em> program path in <em>script’s grammars.coffee</em></li>
+</ol></li>
+<li>Linter: <code>apm install linter-pep8</code>, should install pep8 within <em>Python</em>, <code>pip install pep8</code> (note that there are various coding styles for <em>Python</em>)</li>
+</ol>
+<h2 id="fortran">Fortran</h2>
+<ol type="1">
+<li>Language: <code>apm install language-fortran</code>, <code>apm install language-openmp</code></li>
+<li>Autocomplete: <code>apm install autocomplete-fortran</code></li>
+<li>Compile: you can use <em>Script</em>, but it is better to use a makefile</li>
+<li>Linter: <code>apm install linter-gfortran</code></li>
+</ol>
+<h2 id="r">R</h2>
+<ol type="1">
+<li>Language: <code>apm install language-r</code></li>
+<li>Autocomplete: <code>apm install autocomplete-r</code></li>
+<li>Run inside <em>Atom</em>: using <em>hydrogen</em>, should install <em>IRkernel</em> (<a href="https://github.com/IRkernel/IRkernel" class="uri">https://github.com/IRkernel/IRkernel</a>):
+<ol type="a">
+<li><code>install.packages(c('pbdZMQ', 'repr', 'devtools', 'stringr'))</code></li>
+<li><code>devtools::install_github('IRkernel/IRdisplay')</code></li>
+<li><code>devtools::install_github('IRkernel/IRkernel')</code></li>
+<li><code>IRkernel::installspec()</code></li>
+</ol></li>
+<li>Linter: <code>apm install linter-lintr</code>, should install <em>lintr</em> within <em>R</em>, <code>install.packages(&quot;lintr&quot;)</code></li>
+</ol>
+<h2 id="latex">LaTeX</h2>
+<ol type="1">
+<li>Language: <code>apm install language-latex</code></li>
+<li>Compile: <code>apm install latextools</code>, with various autocomplete inside, note that <em>latextools</em> is build on the clever <em>latexmk</em> command, you can also use makefile to compile latex codes</li>
+<li>Inverse Search with SumatraPDF:<br />
+<code>SumatraPDF.exe -inverse-search &quot;/&quot;/AppData/Local/atom/bin/atom.cmd/&quot; /&quot;%f:%l/&quot;&quot;</code></li>
+<li>Forward Search: <code>apm install sumatra-forwardsearch</code>, does not working now</li>
+<li>Extra utilities for LaTex editing: <code>apm install latex-friend</code></li>
+<li>Linter: <code>apm install linter-chktex</code></li>
+</ol>
+<h2 id="pandoc-markdown">Pandoc Markdown</h2>
+<ol type="1">
+<li>Language: <code>apm install language-pfm</code>, and disable the built-in <code>language-gfm</code>,<br />
+Assistant: <code>apm install markdown-writer</code></li>
+<li>Preview: <code>apm install markdown-preview-plus</code>, disable the built-in <code>markdown-preview</code> Setting: enable math, use github.com style, enable pandoc parser, full path of pandoc.exe, markdown flavor choose markdown<br />
+command line options: <code>--mathjax --highlight-style=zenburn</code><br />
+<code>apm install markdown-scroll-sync</code></li>
+<li>Linter: <code>apm install linter-markdown</code></li>
+<li>Markdown to Latex:
+<ol type="a">
+<li><p>Convert through <code>CMD</code> or <em>makefile</em>, <em>makefile</em> is better in project, for example</p>
+<div class="sourceCode"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span class="dt">pandoc </span><span class="ch">=</span><span class="st"> pandoc --filter=pandoc-minted.py --chapters</span>
+<span class="dt">mddir </span><span class="ch">=</span><span class="st"> md</span>
+<span class="dt">md </span><span class="ch">=</span><span class="st"> </span><span class="ch">$(</span><span class="kw">wildcard</span><span class="st"> </span><span class="ch">$(</span><span class="dt">mddir</span><span class="ch">)</span><span class="st">/*.md</span><span class="ch">)</span>
+<span class="dt">texdir </span><span class="ch">=</span><span class="st"> chapter</span>
+<span class="dt">tex </span><span class="ch">=</span><span class="st"> </span><span class="ch">$(</span><span class="kw">patsubst</span><span class="st"> </span><span class="ch">$(</span><span class="dt">mddir</span><span class="ch">)</span><span class="st">/%md</span><span class="kw">,</span><span class="st"> </span><span class="ch">$(</span><span class="dt">texdir</span><span class="ch">)</span><span class="st">/%tex</span><span class="kw">,</span><span class="st"> </span><span class="ch">$(</span><span class="dt">md</span><span class="ch">))</span>
+
+<span class="dv">all:</span><span class="dt"> </span><span class="ch">$(</span><span class="dt">tex</span><span class="ch">)</span>
+<span class="ot">.PHONY:</span><span class="dt"> all</span>
+
+<span class="dv">$(texdir)/%.tex:</span><span class="dt"> </span><span class="ch">$(</span><span class="dt">mddir</span><span class="ch">)</span><span class="dt">/%.md</span>
+    <span class="ch">$(</span><span class="dt">pandoc</span><span class="ch">)</span> -o <span class="ch">$@</span> <span class="ch">$&lt;</span></code></pre></div></li>
+<li>Source Code highlight: <em>minted</em>, with <em>pandoc-minted</em> filter (<a href="https://github.com/nick-ulle/pandoc-minted" class="uri">https://github.com/nick-ulle/pandoc-minted</a>)<br />
+should install <code>pandocfilters</code> in python, and add <code>%!TEX option = -shell-escape</code> to the root latex document</li>
+</ol></li>
+<li>Convert <em>Markdown</em> to various format using <em>init.coffee</em>:</li>
+</ol>
+</div>
+    </div><!-- /.main -->
+  </div><!-- /.row -->
+</div><!-- /.container-fluid -->
+
+<div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+      <p class="navbar-text navbar-right">© 2017 <a href="mailto:econwang@econwang.com">Stephen Y.F. Wang</a>. &nbsp;&nbsp; Powered by <a href="http://pandoc.org/">Pandoc</a> &amp; <a href="https://getbootstrap.com/">Bootstrap</a>
+      </p>
+    </div>
+</div>
+
+<script type="text/javascript" src="assets/jquery/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+    jQuery(function()
+    {
+        jQuery('#TOC').find('ul').addClass('nav');
+        jQuery('#TOC').children('ul').addClass('bs-docs-sidenav');
+    });
+</script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/bootstrap-docs/docs.min.js"></script>
+
+</body>
+</html>

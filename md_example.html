@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-89702789-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  <!-- End Google Analytics -->
+  <meta name="author" content="Stephen Y.F. Wang">
+  <meta name="dcterms.date" content="2016-12-31">
+  <title>Markdown Cheatsheet</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap-docs/docs.min.css">
+  <link rel="stylesheet" href="assets/econwang.css">
+  <style type="text/css">
+  #document-body h1,
+  #document-body h2,
+  #document-body h3,
+  #document-body h4,
+  #document-body h5,
+  #document-body h6 {
+    margin-top:-50px;
+    padding-top:50px;
+  };
+  </style>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://econwang.com">ECON WORLD</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="http://econwang.com">Home</a></li>
+        <li><a href="mailto:econwang@econwang.com">Contact</a></li>
+        <li><a href="https://github.com/econwang">Github</a></li>
+        <li><a href="http://econwang.com/donation.html">Donation</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm sidebar" role="complementary" id="TOC">
+<ul>
+<li><a href="#this-is-level-1-header">This is Level 1 Header</a><ul>
+<li><a href="#this-is-level-2-header">This is Level 2 Header</a></li>
+</ul></li>
+<li><a href="#段落和行内断行">段落和行内断行</a></li>
+<li><a href="#horizontal-rules">Horizontal Rules</a></li>
+<li><a href="#italics-bold-superscript-subscript-strikeout">Italics, bold, superscript, subscript, strikeout</a></li>
+<li><a href="#footnotes">Footnotes</a></li>
+<li><a href="#list">List</a><ul>
+<li><a href="#unordered-list---or">Unordered List (*, - or +)</a></li>
+<li><a href="#ordered-list">Ordered List</a></li>
+<li><a href="#definition-lists">Definition lists</a></li>
+</ul></li>
+<li><a href="#blockquotes">Blockquotes</a></li>
+<li><a href="#links-and-images">Links and images</a><ul>
+<li><a href="#links">Links</a></li>
+<li><a href="#images">Images</a></li>
+</ul></li>
+<li><a href="#tables">Tables</a></li>
+<li><a href="#math">Math</a></li>
+<li><a href="#code">Code</a></li>
+<li><a href="#citations">Citations</a></li>
+</ul>
+    </div><!-- /#TOC -->
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+
+      <header>
+        <h1 class="title page-header">Markdown Cheatsheet</h1>
+        <h2 class="author">Stephen Y.F. Wang</h2>
+        <h3 class="date">2016-12-31</h3>
+        <hr />
+      <p> &nbsp; </p>
+      </header>
+
+<div id="document-body">
+<h1 id="this-is-level-1-header">This is Level 1 Header</h1>
+<p>hello</p>
+<h2 id="this-is-level-2-header">This is Level 2 Header</h2>
+<p>hello</p>
+<h1 id="段落和行内断行">段落和行内断行</h1>
+<p>A paragraph is one or more lines of text separated by a blank line.</p>
+<p>A line that ends with two spaces indicates a manual line break.</p>
+<h1 id="horizontal-rules">Horizontal Rules</h1>
+<p>3 or more dashes (space between okay)</p>
+<hr />
+<h1 id="italics-bold-superscript-subscript-strikeout">Italics, bold, superscript, subscript, strikeout</h1>
+<p><em>Italics</em> and <strong>不知道啊</strong> are indicated with asterisks. 你是什么东西</p>
+<p>To <del>strikeout</del> text use double tildas.</p>
+<p>Superscripts use carats, like so: 2<sup>nd</sup>.</p>
+<p>Subscripts use single tildas, like so: H<sub>2</sub>O.</p>
+<p>Spaces inside subscripts and superscripts must be escaped, e.g., H<sub>this is a long subscript</sub>.</p>
+<p>Backslash Escapes: <em>ad*d</em></p>
+<h1 id="footnotes">Footnotes</h1>
+<p>Inline notes are like this.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a><br />
+Reference notes are like this.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
+<h1 id="list">List</h1>
+<h2 id="unordered-list---or">Unordered List (*, - or +)</h2>
+<ul>
+<li>hello</li>
+<li>haha</li>
+<li>hi</li>
+</ul>
+<p>List can be nested:</p>
+<ul>
+<li>hello 1
+<ul>
+<li>hello2</li>
+<li>hello 3</li>
+</ul></li>
+<li>hello 4</li>
+<li>hello 5</li>
+</ul>
+<h2 id="ordered-list">Ordered List</h2>
+<ol type="1">
+<li>hello 1</li>
+<li>hello 2</li>
+</ol>
+<ol type="A">
+<li>hello A</li>
+<li>hello B</li>
+</ol>
+<ol type="a">
+<li>hello a
+<ol type="i">
+<li>hello a1</li>
+</ol></li>
+<li>hello b</li>
+</ol>
+<h2 id="definition-lists">Definition lists</h2>
+<dl>
+<dt>Term 1</dt>
+<dd>Definition 1
+</dd>
+<dt>Term 2</dt>
+<dd>Definition 2a
+</dd>
+<dd>Definition 2b hello word
+</dd>
+</dl>
+<h1 id="blockquotes">Blockquotes</h1>
+<blockquote>
+<p>blockquote</p>
+<blockquote>
+<p>nested blockquote</p>
+</blockquote>
+</blockquote>
+<h1 id="links-and-images">Links and images</h1>
+<h2 id="links">Links</h2>
+<p><a href="http://example.com" class="uri">http://example.com</a><br />
+<a href="http://example.com" title="Title">inline link</a></p>
+<h2 id="images">Images</h2>
+<figure>
+<img src="http://charls.ccer.edu.cn/assets/v2/h_logo-8c0a2392ba3ea2178d8f69dadc66ad79.jpg" title="alt text" alt="inline image" style="width:50.0%" /><figcaption>inline image</figcaption>
+</figure>
+<figure>
+<img src="image/charls.jpg" alt="inline image" style="width:50.0%" /><figcaption>inline image</figcaption>
+</figure>
+<h1 id="tables">Tables</h1>
+<table>
+<caption>Demonstration of simple table syntax.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Right</th>
+<th style="text-align: left;">Left</th>
+<th style="text-align: center;">Center</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">12</td>
+<td style="text-align: center;">12</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">123</td>
+<td style="text-align: left;">123</td>
+<td style="text-align: center;">123</td>
+<td>123</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: center;">1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h1 id="math">Math</h1>
+<p>Inline math: <span class="math inline">\(2+2\)</span>, <span class="math inline">\(\sqrt{ab}\)</span>, <span class="math inline">\(\sum_a^b x\)</span></p>
+Math Block:
+<span class="math display">\[\begin{equation*}
+  \int_a^b  \frac{x^2}{b}dx
+\end{equation*}\]</span>
+<p><span id="eq:eq1"><span class="math display">\[
+3w=\frac{1}{2}z
+\qquad(1)\]</span></span></p>
+<p>eq. 1 shows the relationship between bla bla</p>
+<h1 id="code">Code</h1>
+<ul>
+<li>Inline code <code>import numpy as np</code><br />
+</li>
+<li><p>Code Block:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> numpy <span class="im">as</span> np
+a <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])
+<span class="cf">for</span> ele <span class="kw">in</span> a:
+    <span class="bu">print</span> ele</code></pre></div></li>
+</ul>
+<h1 id="citations">Citations</h1>
+<p><span class="citation" data-cites="neto_centre_2008">Neto and de Carvalho (2008)</span> show that the interval regression bla bla.<br />
+<span class="citation" data-cites="jo2016bayesian">Jo and Seo (2016)</span> bla bla.</p>
+<div id="refs" class="references">
+<div id="ref-jo2016bayesian">
+<p>Jo, Jinhee, and Kyoungwon Seo. 2016. “Bayesian Analysis of Entry Games: A Simulated Likelihood Approach Without Simulation Errors.” <em>Global Economic Review</em> 45 (3). Taylor &amp; Francis: 294–309.</p>
+</div>
+<div id="ref-neto_centre_2008">
+<p>Neto, Eufrásio de A. Lima, and Francisco de AT de Carvalho. 2008. “Centre and Range Method for Fitting a Linear Regression Model to Symbolic Interval Data.” <em>Computational Statistics &amp; Data Analysis</em> 52 (3): 1500–1515. <a href="http://www.sciencedirect.com/science/article/pii/S0167947307001934" class="uri">http://www.sciencedirect.com/science/article/pii/S0167947307001934</a>.</p>
+</div>
+</div>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Note that inline notes cannot contain multiple paragraphs.<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>Reference notes can contain multiple paragraphs.</p>
+<p>Subsequent paragraphs must be indented.<a href="#fnref2">↩</a></p></li>
+</ol>
+</section>
+</div>
+    </div><!-- /.main -->
+  </div><!-- /.row -->
+</div><!-- /.container-fluid -->
+
+<div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+      <p class="navbar-text navbar-right">© 2017 <a href="mailto:econwang@econwang.com">Stephen Y.F. Wang</a>. &nbsp;&nbsp; Powered by <a href="http://pandoc.org/">Pandoc</a> &amp; <a href="https://getbootstrap.com/">Bootstrap</a>
+      </p>
+    </div>
+</div>
+
+<script type="text/javascript" src="assets/jquery/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+    jQuery(function()
+    {
+        jQuery('#TOC').find('ul').addClass('nav');
+        jQuery('#TOC').children('ul').addClass('bs-docs-sidenav');
+    });
+</script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/bootstrap-docs/docs.min.js"></script>
+
+</body>
+</html>

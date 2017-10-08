@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-89702789-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  <!-- End Google Analytics -->
+  <meta name="author" content="Stephen Y.F. Wang">
+  <meta name="dcterms.date" content="2017-01-05">
+  <title>POSIX for Windows</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap-docs/docs.min.css">
+  <link rel="stylesheet" href="assets/econwang.css">
+  <style type="text/css">
+  #document-body h1,
+  #document-body h2,
+  #document-body h3,
+  #document-body h4,
+  #document-body h5,
+  #document-body h6 {
+    margin-top:-50px;
+    padding-top:50px;
+  };
+  </style>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://econwang.com">ECON WORLD</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="http://econwang.com">Home</a></li>
+        <li><a href="mailto:econwang@econwang.com">Contact</a></li>
+        <li><a href="https://github.com/econwang">Github</a></li>
+        <li><a href="http://econwang.com/donation.html">Donation</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm sidebar" role="complementary" id="TOC">
+<ul>
+<li><a href="#conemu">ConEmu</a></li>
+<li><a href="#msys">MSYS</a></li>
+<li><a href="#gnu-toolchain">GNU Toolchain</a></li>
+<li><a href="#git">Git</a></li>
+</ul>
+    </div><!-- /#TOC -->
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+
+      <header>
+        <h1 class="title page-header">POSIX for Windows</h1>
+        <h2 class="author">Stephen Y.F. Wang</h2>
+        <h3 class="date">2017-01-05</h3>
+        <hr />
+      <p> &nbsp; </p>
+      </header>
+
+<div id="document-body">
+<h1 id="conemu">ConEmu</h1>
+<blockquote>
+<p><strong>ConEmu</strong> is a Windows console emulator with tabs, which presents multiple consoles and simple GUI applications as one customizable GUI window with various features. <strong>ConEmu</strong> can be used with any other console application or simple GUI tools.</p>
+<p>—- <a href="https://conemu.github.io/" class="uri">https://conemu.github.io/</a></p>
+</blockquote>
+<p>With native windows commands, using <strong>ConEmu</strong> is same as <strong>CMD</strong>, but with lots of enhancement, you can also use <strong>MSYS</strong> within <strong>ConEmu</strong> with following steps:</p>
+<ol type="1">
+<li>Download the <strong>msys terminal connector</strong> from <a href="https://conemu.github.io/en/CygwinMsysConnector.html" class="uri">https://conemu.github.io/en/CygwinMsysConnector.html</a></li>
+<li>Put it in <a href="/path2msys/bin" class="uri">/path2msys/bin</a></li>
+<li><p>Set a ConEmu Task as</p>
+<pre class="shell"><code>set CEMDIR=%ConEmuWorkDir% &amp; cmd /k /path2msys/bin/conemu-msys-32.exe</code></pre>
+it will starts <strong>MSYS</strong> within <strong>ConEmu</strong> with current ConEmuWorkDir</li>
+<li><p>If want open <strong>ConEmu</strong> and <strong>MSYS</strong> within <strong>Atom</strong>, can try the plugins <a href="https://github.com/ziyasal/atom-open-conemu-here">open-conemu-here</a> and <a href="https://github.com/econwang/atom-open-msys-here">open-msys-here</a>.</p></li>
+</ol>
+<h1 id="msys">MSYS</h1>
+<blockquote>
+<p><strong>MSYS</strong> is a collection of GNU utilities such as bash, make, gawk and grep to allow building of applications and programs which depend on traditionally <strong>UNIX</strong> tools to be present. An example would be building a library that uses the <strong>autotools</strong> build system. Users will typically run <code>./configure</code> then <code>make</code> to build it.</p>
+<p>—- <a href="http://www.mingw.org/wiki/msys" class="uri">http://www.mingw.org/wiki/msys</a></p>
+</blockquote>
+<p>An recently alternative is <a href="http://www.msys2.org/"><strong>MSYS2</strong></a>, an independent rewrite of <strong>MSYS</strong>, based on modern <strong>Cygwin</strong> and <strong>MinGW-w64</strong> with the aim of better interoperability with native Windows software. It works with the <strong>pacman</strong> package manager. A challenge with <strong>MSYS</strong> is that it works well with packages build within this environment, but may not be compatible with standard Windows system package, such as <strong>Python</strong>.</p>
+<ol type="1">
+<li>Download: There are three places you can get <strong>MSYS</strong>
+<ol type="a">
+<li>The <a href="https://sourceforge.net/projects/mingw/files/MSYS/"><strong>MinGW</strong></a> project, with separate packages of all official MSYS packages, may take a long time to download and install.</li>
+<li>The all-in-one package in the <a href="http://sourceforge.net/projects/mingw-w64/files/External%20binary%20packages%20%28Win64%20hosted%29/MSYS%20%2832-bit%29/"><strong>MinGW-w64</strong> project</a>.</li>
+<li><a href="http://sourceforge.net/projects/mingwbuilds/files/external-binary-packages/"><strong>MinGW-builds</strong></a> provides an ultra-inclusive <strong>MSYS</strong> package with a bunch of <em>additional useful stuff</em>, such as <strong>msysgit</strong> and <strong>svn</strong>.</li>
+</ol>
+<p>I suggest the <strong>MinGW-builds</strong> version.</p></li>
+<li>Installation: Unzip the downloaded file to a folder, such as <a href="/c/msys" class="uri">/c/msys</a>.</li>
+<li>Settings:
+<ol type="a">
+<li><p>In <a href="/path2msys/etc" class="uri">/path2msys/etc</a>, add a line with</p>
+<pre class="shell"><code>c:/TDM-GCC-64       /mingw</code></pre>
+<p>if you want to use the <strong>TDM-GCC</strong>. it can be the path to any other <strong>GNU Toolchain</strong> you choose.</p></li>
+<li><p>If you want use the <strong>ConEmu</strong> as the terminal for <strong>MSYS</strong>, it is better to replace the <code>cd &quot;$HOME&quot;</code> with the following codes to the file <a href="/path2msys/etc/profile" class="uri">/path2msys/etc/profile</a></p>
+<pre class="shell"><code>if [ -n &quot;$CEMDIR&quot; ]; then
+  CEMDIR1=$(echo &quot;$CEMDIR&quot; | sed -e &#39;s/\\/\//g&#39; -e &#39;s/://&#39;)
+  cd &quot;/$CEMDIR1&quot;
+else
+  cd &quot;$HOME&quot;
+fi</code></pre></li>
+<li><p>You can add the <a href="/path2msys/bin" class="uri">/path2msys/bin</a> to Windows Path, but this is not necessary, since you should always use <strong>MSYS</strong> command within <strong>MSYS</strong> environment.</p></li>
+</ol></li>
+</ol>
+<h1 id="gnu-toolchain">GNU Toolchain</h1>
+<p>There are several versions of <strong>GNU Toolchain</strong> for Windows, include <strong>MinGw</strong>, <strong>MinGw-w64</strong> and <strong>TDM-GCC</strong>. <strong>MinGw</strong> only can build 32 bit binaries, <strong>MinGw-w64</strong> supports both 32 and 64 bit binaries, but need to install both versions, while <strong>TDM-GCC</strong> supports both 32 and 64 bit binaries with switching by adding one compile option. My choice is <a href="http://tdm-gcc.tdragon.net/"><strong>TDM-GCC</strong></a>.</p>
+<p>The installation of <strong>TDM-GCC</strong> is similar to usual Windows programs, it is better to choose all packages, the <strong>gfortran</strong> is not installed by default.</p>
+<h1 id="git">Git</h1>
+<ol type="1">
+<li><p>Git Config</p>
+<pre class="shell"><code># global username and email, the local one is associated with project
+git config --global user.name &quot;username&quot;
+git config --global user.email &quot;useremail&quot;
+# ssh key
+ssh-keygen -t rsa -f ~/.ssh/nameofrsafile -C &quot;useremail&quot;
+# put the key in server (github), then test with:
+ssh -T git@github.com</code></pre>
+<p>if working with several servers, should use ssh config file, with contents like:</p>
+<pre class="shell"><code>Host github.com
+RSAAuthentication yes
+Port 22
+IdentityFile ~/.ssh/id_rsa_xxx</code></pre></li>
+<li><p>Initialize a Git Project:</p>
+<pre class="shell"><code>cd /path2project
+git init</code></pre></li>
+<li><p>Local Git</p>
+<pre class="shell"><code># check status
+git status
+# add files
+git add &lt;file&gt;
+git add -A
+# commit
+git commit -m &quot;information&quot;
+# check log
+git log
+# remove changes
+git checkout -- .
+# check current file status and last commit
+git diff
+# versions
+git reflog
+git reset --hard versionid</code></pre></li>
+<li><p>Github or other git server</p>
+<pre class="shell"><code># Add Origin repo
+git remote add origin sshorhttps_address
+# if the server repo contains readme or license
+git push -u origin master
+# push local commit to server
+git push
+# get last commit from server
+git pull</code></pre></li>
+</ol>
+</div>
+    </div><!-- /.main -->
+  </div><!-- /.row -->
+</div><!-- /.container-fluid -->
+
+<div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+      <p class="navbar-text navbar-right">© 2017 <a href="mailto:econwang@econwang.com">Stephen Y.F. Wang</a>. &nbsp;&nbsp; Powered by <a href="http://pandoc.org/">Pandoc</a> &amp; <a href="https://getbootstrap.com/">Bootstrap</a>
+      </p>
+    </div>
+</div>
+
+<script type="text/javascript" src="assets/jquery/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+    jQuery(function()
+    {
+        jQuery('#TOC').find('ul').addClass('nav');
+        jQuery('#TOC').children('ul').addClass('bs-docs-sidenav');
+    });
+</script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/bootstrap-docs/docs.min.js"></script>
+
+</body>
+</html>
