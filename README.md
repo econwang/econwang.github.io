@@ -1,2 +1,0 @@
-# econwang.github.io
-website
