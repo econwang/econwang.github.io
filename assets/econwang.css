@@ -20,6 +20,8 @@
 body {
   font-family: "noto_serifregular", Helvetica, sans-serif;
   padding-top: 50px;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 
@@ -59,7 +61,7 @@ body {
   .sidebar {
     margin-top: -20px;
     padding-top: 20px;
-    width: 200px;
+    width: auto;
     position: fixed;
     top: 51px;
     bottom: 0;
@@ -97,6 +99,7 @@ body {
 
 .main {
   padding: 20px;
+  margin-left: 245px;
 }
 @media (min-width: 768px) {
   .main {
@@ -156,4 +159,55 @@ table th, table td {
     padding: 5px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: black;
+    background: none;
+    font-weight: normal;
+    margin: 0;
+    overflow: hidden;
+    padding-top: .5em;
+    padding-bottom: .17em;
+}
+
+h1 {
+    font-size:24px;
+    border-bottom: 4px double #F0F0F0;
+}
+
+h2 {
+    font-size:21px;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+h3 {
+    font-size:18px;
+}
+
+h1, h2 {
+    margin-bottom:.6em;
+    line-height:1.1em;
+}
+
+h3, h4, h5 {
+    margin-bottom:.3em;
+}
+
+h1.title {
+    font-size:27px;
+    border-bottom: none;
+    margin-bottom: 0em
+}
+
+h2.author {
+    font-size:18px;
+    font-style:italic;
+    border-bottom: none;
+}
+
+h3.date {
+    font-size:18px;
+    font-style:italic;
+    border-bottom: none;
 }
