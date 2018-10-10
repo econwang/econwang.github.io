@@ -9,7 +9,6 @@
     font-family: 'noto_serifregular';
     src: url('fonts/notoserif-regular-webfont.eot');
     src: url('fonts/notoserif-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/notoserif-regular-webfont.woff2') format('woff2'),
          url('fonts/notoserif-regular-webfont.woff') format('woff'),
          url('fonts/notoserif-regular-webfont.ttf') format('truetype'),
          url('fonts/notoserif-regular-webfont.svg#noto_serifregular') format('svg');
