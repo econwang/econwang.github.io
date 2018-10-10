@@ -210,3 +210,7 @@ h3.date {
     font-style:italic;
     border-bottom: none;
 }
+
+code {
+    font-family: Source Code Pro;
+}
