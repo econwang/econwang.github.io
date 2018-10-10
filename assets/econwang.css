@@ -20,8 +20,10 @@
 body {
   font-family: "noto_serifregular", Helvetica, sans-serif;
   padding-top: 50px;
+    /*
   font-size: 16px;
   line-height: 22px;
+  */
 }
 
 
@@ -61,7 +63,7 @@ body {
   .sidebar {
     margin-top: -20px;
     padding-top: 20px;
-    width: auto;
+    width: 200px;
     position: fixed;
     top: 51px;
     bottom: 0;
@@ -172,17 +174,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size:24px;
     border-bottom: 4px double #F0F0F0;
 }
 
 h2 {
-    font-size:21px;
     border-bottom: 1px solid #F0F0F0;
-}
-
-h3 {
-    font-size:18px;
 }
 
 h1, h2 {
@@ -195,19 +191,16 @@ h3, h4, h5 {
 }
 
 h1.title {
-    font-size:27px;
     border-bottom: none;
     margin-bottom: 0em
 }
 
 h2.author {
-    font-size:18px;
     font-style:italic;
     border-bottom: none;
 }
 
 h3.date {
-    font-size:18px;
     font-style:italic;
     border-bottom: none;
 }
