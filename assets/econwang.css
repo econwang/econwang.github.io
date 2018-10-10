@@ -99,7 +99,7 @@ body {
 
 .main {
   padding: 20px;
-  margin-left: 245px;
+/*  margin-left: 245px;*/
 }
 @media (min-width: 768px) {
   .main {
